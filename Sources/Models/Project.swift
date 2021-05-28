@@ -16,16 +16,12 @@ public struct Project: Codable {
     /// The project name
     public let name: String
 
-    /// The activity unique identifier the session is associated with
-    public let activity: Activity
-
     /// The project attached devices
     public let devices: [Device]
 
-    public init(id: String = UUID().uuidString, name: String, activity: Activity, devices: [Device] = []) {
+    public init(id: String = UUID().uuidString, name: String, devices: [Device] = []) {
         self.id = id
         self.name = name
-        self.activity = activity
         self.devices = devices
     }
 }
@@ -34,7 +30,6 @@ extension Project {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case name
-        case activity
         case devices
     }
 }
@@ -43,6 +38,6 @@ extension Project: Identifiable {}
 
 extension Project: CustomStringConvertible {
     public var description: String {
-        "<Project id: \(id) name: \(name) activity: \(activity)>"
+        "<Project id: \(id) name: \(name)>"
     }
 }
