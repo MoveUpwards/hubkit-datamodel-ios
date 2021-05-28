@@ -9,7 +9,7 @@
 import Foundation
 
 /// A measurement campaign over a given time interval with one or more Devices
-public struct Session: Decodable {
+public struct Session: Codable {
     /// The unique identifier
     public let id: String
 

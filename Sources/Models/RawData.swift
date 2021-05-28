@@ -9,7 +9,7 @@
 import Foundation
 
 /// RawData represents the data captured by a Sensor
-public struct RawData: Decodable {
+public struct RawData: Codable {
     /// The unique identifier
     public let id: String
 
