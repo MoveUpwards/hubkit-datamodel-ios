@@ -16,13 +16,9 @@ public struct Project: Codable {
     /// The project name
     public let name: String
 
-    /// The project attached devices
-    public let devices: [Device]
-
-    public init(id: String = UUID().uuidString, name: String, devices: [Device] = []) {
+    public init(id: String = UUID().uuidString, name: String) {
         self.id = id
         self.name = name
-        self.devices = devices
     }
 }
 
@@ -30,7 +26,6 @@ extension Project {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case name
-        case devices
     }
 }
 
