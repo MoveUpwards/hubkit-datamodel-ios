@@ -23,6 +23,9 @@ public struct Session: Codable {
     public let metas: String?
 
     /// The session captured date
+    public let duration: TimeInterval?
+
+    /// The session captured date
     public let capturedAt: Date?
 }
 
@@ -32,6 +35,7 @@ extension Session {
         case state
         case project
         case metas
+        case duration
         case capturedAt
     }
 }
@@ -40,6 +44,6 @@ extension Session: Identifiable {}
 
 extension Session: CustomStringConvertible {
     public var description: String {
-        "<Session id: \(id)>"
+        "<Session id: \(id) duration: \(String(describing: duration))>"
     }
 }
