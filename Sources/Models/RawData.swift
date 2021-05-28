@@ -1,5 +1,5 @@
 //
-//  HKRawData.swift
+//  RawData.swift
 //  HubKit
 //
 //  Created by Loïc GRIFFIE on 24/09/2018.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// HKRawData represents the data captured by a Sensor
-public struct HKRawData: Decodable {
+/// RawData represents the data captured by a Sensor
+public struct RawData: Decodable {
     /// The unique identifier
     public let id: String
 
@@ -26,7 +26,7 @@ public struct HKRawData: Decodable {
     }
 }
 
-extension HKRawData {
+extension RawData {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case device
@@ -34,10 +34,10 @@ extension HKRawData {
     }
 }
 
-extension HKRawData: Identifiable {}
+extension RawData: Identifiable {}
 
-extension HKRawData: CustomStringConvertible {
+extension RawData: CustomStringConvertible {
     public var description: String {
-        "<HKRawData id: \(id)>"
+        "<RawData id: \(id)>"
     }
 }

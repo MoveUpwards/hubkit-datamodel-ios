@@ -1,5 +1,5 @@
 //
-//  HKAccount.swift
+//  Account.swift
 //  HubKit
 //
 //  Created by Loïc GRIFFIE on 24/09/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// An authenticated user account representation
-public struct HKAccount: Codable {
+public struct Account: Codable {
     /// The unique identifier
     public let id: String
 
@@ -17,16 +17,16 @@ public struct HKAccount: Codable {
     public let email: String
 
     /// The authenticated user projects
-    public let projects: [HKProject]
+    public let projects: [Project]
 
-    public init(id: String = UUID().uuidString, email: String, projects: [HKProject] = []) {
+    public init(id: String = UUID().uuidString, email: String, projects: [Project] = []) {
         self.id = id
         self.email = email
         self.projects = projects
     }
 }
 
-extension HKAccount {
+extension Account {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case email
@@ -34,10 +34,10 @@ extension HKAccount {
     }
 }
 
-extension HKAccount: Identifiable {}
+extension Account: Identifiable {}
 
-extension HKAccount: CustomStringConvertible {
+extension Account: CustomStringConvertible {
     public var description: String {
-        "<HKAccount id: \(id), email: \(email)>"
+        "<Account id: \(id) email: \(email)>"
     }
 }

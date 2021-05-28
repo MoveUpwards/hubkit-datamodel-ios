@@ -1,5 +1,5 @@
 //
-//  HKDevice.swift
+//  Device.swift
 //  HubKit
 //
 //  Created by Damien Noël Dubuisson on 24/09/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A physical device containing a set of electronic components for measurements (Sensors)
-public struct HKDevice: Codable {
+public struct Device: Codable {
     /// The unique identifier
     public let id: String
 
@@ -78,7 +78,7 @@ public struct HKDevice: Codable {
     }
 }
 
-extension HKDevice {
+extension Device {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case externalUUID = "externalIdentifier"
@@ -96,10 +96,10 @@ extension HKDevice {
     }
 }
 
-extension HKDevice: Identifiable {}
+extension Device: Identifiable {}
 
-extension HKDevice: CustomStringConvertible {
+extension Device: CustomStringConvertible {
     public var description: String {
-        "<HKDevice id: \(id), activated: \(activated)>"
+        "<Device id: \(id) activated: \(activated)>"
     }
 }

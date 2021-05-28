@@ -1,5 +1,5 @@
 //
-//  HKSession.swift
+//  Session.swift
 //  HubKit
 //
 //  Created by Loïc GRIFFIE on 24/09/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A measurement campaign over a given time interval with one or more Devices
-public struct HKSession: Decodable {
+public struct Session: Decodable {
     /// The unique identifier
     public let id: String
 
@@ -26,7 +26,7 @@ public struct HKSession: Decodable {
     public let capturedAt: Date?
 }
 
-extension HKSession {
+extension Session {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case state
@@ -36,10 +36,10 @@ extension HKSession {
     }
 }
 
-extension HKSession: Identifiable {}
+extension Session: Identifiable {}
 
-extension HKSession: CustomStringConvertible {
+extension Session: CustomStringConvertible {
     public var description: String {
-        "<HKSession id: \(id)>"
+        "<Session id: \(id)>"
     }
 }

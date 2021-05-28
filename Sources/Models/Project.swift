@@ -1,5 +1,5 @@
 //
-//  HKProject.swift
+//  Project.swift
 //  HubKit
 //
 //  Created by Loïc GRIFFIE on 26/09/2018.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// A container grouping a set of Session representing measurement campaigns.
-public struct HKProject: Codable {
+public struct Project: Codable {
     /// The unique identifier
     public let id: String
 
@@ -17,12 +17,12 @@ public struct HKProject: Codable {
     public let name: String
 
     /// The activity unique identifier the session is associated with
-    public let activity: HKActivity
+    public let activity: Activity
 
     /// The project attached devices
-    public let devices: [HKDevice]
+    public let devices: [Device]
 
-    public init(id: String = UUID().uuidString, name: String, activity: HKActivity, devices: [HKDevice] = []) {
+    public init(id: String = UUID().uuidString, name: String, activity: Activity, devices: [Device] = []) {
         self.id = id
         self.name = name
         self.activity = activity
@@ -30,7 +30,7 @@ public struct HKProject: Codable {
     }
 }
 
-extension HKProject {
+extension Project {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case name
@@ -39,10 +39,10 @@ extension HKProject {
     }
 }
 
-extension HKProject: Identifiable {}
+extension Project: Identifiable {}
 
-extension HKProject: CustomStringConvertible {
+extension Project: CustomStringConvertible {
     public var description: String {
-        "<HKProject id: \(id), name: \(name), activity: \(activity)>"
+        "<Project id: \(id) name: \(name) activity: \(activity)>"
     }
 }
