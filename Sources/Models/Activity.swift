@@ -1,5 +1,5 @@
 //
-//  HKActivity.swift
+//  Activity.swift
 //  HubKit
 //
 //  Created by Loïc GRIFFIE on 24/09/2018.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// HKActivity represents an activity a session can be associated with
-public struct HKActivity: Codable {
+/// Activity represents an activity a session can be associated with
+public struct Activity: Codable {
     /// The unique identifier
     public let id: String
 
@@ -22,17 +22,17 @@ public struct HKActivity: Codable {
     }
 }
 
-extension HKActivity {
+extension Activity {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
         case name
     }
 }
 
-extension HKActivity: Identifiable {}
+extension Activity: Identifiable {}
 
-extension HKActivity: CustomStringConvertible {
+extension Activity: CustomStringConvertible {
     public var description: String {
-        "<HKActivity id: \(id), name: \(name)>"
+        "<Activity id: \(id) name: \(name)>"
     }
 }

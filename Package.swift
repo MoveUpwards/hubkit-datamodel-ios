@@ -3,21 +3,21 @@
 import PackageDescription
 
 let package = Package(
-    name: "HubkitDataModel",
+    name: "hubkit-model-swift",
     platforms: [
         .iOS(.v10),
         .macOS(.v10_13)
     ],
     products: [
         .library(
-            name: "HubkitDataModel",
-            targets: ["HubkitDataModel"]
+            name: "HubkitModel",
+            targets: ["HubkitModel"]
         ),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "HubkitDataModel",
+            name: "HubkitModel",
             dependencies: [],
             path: "Sources"
         ),
