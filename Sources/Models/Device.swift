@@ -14,7 +14,7 @@ public struct Device: Codable {
     public let id: UUID
 
     /// The name of the device
-    public let externalUUID: UUID?
+    public let externalUUID: String?
 
     /// The name of the device
     public let name: String?
