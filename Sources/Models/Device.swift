@@ -48,34 +48,6 @@ public struct Device: Codable {
 
     /// The device activation date
     public let activatedAt: Date?
-
-    public init(id: UUID = UUID(),
-                externalUUID: String? = nil,
-                name: String,
-                macAddress: String,
-                hardwareVersion: String,
-                firmwareVersion: String,
-                sensorType: String,
-                manualMode: Bool = false,
-                activated: Bool = false,
-                latitude: Double? = nil,
-                longitude: Double? = nil,
-                battery: Int? = nil,
-                activatedAt: Date? = nil) {
-        self.id = id
-        self.externalUUID = externalUUID
-        self.name = name
-        self.macAddress = macAddress
-        self.hardwareVersion = hardwareVersion
-        self.firmwareVersion = firmwareVersion
-        self.latitude = latitude
-        self.longitude = longitude
-        self.sensorType = sensorType
-        self.battery = battery
-        self.manualMode = manualMode
-        self.activated = activated
-        self.activatedAt = activatedAt
-    }
 }
 
 extension Device {
