@@ -11,19 +11,13 @@ import Foundation
 /// An authenticated user account representation
 public struct Account: Codable {
     /// The unique identifier
-    public let id: String
+    public let id: UUID
 
     /// The authenticated user email adress
     public let email: String
 
     /// The authenticated user projects
     public let projects: [Project]
-
-    public init(id: String = UUID().uuidString, email: String, projects: [Project] = []) {
-        self.id = id
-        self.email = email
-        self.projects = projects
-    }
 }
 
 extension Account {

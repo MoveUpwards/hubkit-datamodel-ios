@@ -11,13 +11,13 @@ import Foundation
 /// A measurement campaign over a given time interval with one or more Devices
 public struct Session: Codable {
     /// The unique identifier
-    public let id: String
+    public let id: UUID
 
     /// The state ot the session
     public let state: String?
 
     /// The project unique identifier the session is linked to
-    public let project: String?
+    public let project: UUID?
 
     /// The project unique identifier the session is linked to
     public let metas: String?

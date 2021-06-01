@@ -11,10 +11,10 @@ import Foundation
 /// A physical device containing a set of electronic components for measurements (Sensors)
 public struct Device: Codable {
     /// The unique identifier
-    public let id: String
+    public let id: UUID
 
     /// The name of the device
-    public let externalUUID: String?
+    public let externalUUID: UUID?
 
     /// The name of the device
     public let name: String?
@@ -48,34 +48,6 @@ public struct Device: Codable {
 
     /// The device activation date
     public let activatedAt: Date?
-
-    public init(id: String = UUID().uuidString,
-                externalUUID: String? = nil,
-                name: String? = nil,
-                macAddress: String? = nil,
-                hardwareVersion: String? = nil,
-                firmwareVersion: String? = nil,
-                latitude: Double? = nil,
-                longitude: Double? = nil,
-                sensorType: String? = nil,
-                battery: Int? = nil,
-                manualMode: Bool = false,
-                activated: Bool = false,
-                activatedAt: Date? = nil) {
-        self.id = id
-        self.externalUUID = externalUUID
-        self.name = name
-        self.macAddress = macAddress
-        self.hardwareVersion = hardwareVersion
-        self.firmwareVersion = firmwareVersion
-        self.latitude = latitude
-        self.longitude = longitude
-        self.sensorType = sensorType
-        self.battery = battery
-        self.manualMode = manualMode
-        self.activated = activated
-        self.activatedAt = activatedAt
-    }
 }
 
 extension Device {

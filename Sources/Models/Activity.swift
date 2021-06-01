@@ -11,15 +11,10 @@ import Foundation
 /// Activity represents an activity a session can be associated with
 public struct Activity: Codable {
     /// The unique identifier
-    public let id: String
+    public let id: UUID
 
     /// The activity name
     public let name: String
-
-    public init(id: String = UUID().uuidString, name: String) {
-        self.id = id
-        self.name = name
-    }
 }
 
 extension Activity {
