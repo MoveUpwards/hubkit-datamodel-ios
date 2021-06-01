@@ -11,15 +11,10 @@ import Foundation
 /// A container grouping a set of Session representing measurement campaigns.
 public struct Project: Codable {
     /// The unique identifier
-    public let id: String
+    public let id: UUID
 
     /// The project name
     public let name: String
-
-    public init(id: String = UUID().uuidString, name: String) {
-        self.id = id
-        self.name = name
-    }
 }
 
 extension Project {
