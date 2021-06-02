@@ -18,17 +18,17 @@ public enum AlgorithmType {
     }
 
     // IPPT (https://iptt.algo.tibtop-connect.com/sessions/iptt)
-    case ippt(params: Codable)
+    case ippt(params: Ippt)
 
     // STATS based on GPS sensor (https://gps.algo.tibtop-connect.com/sessions/gps)
     // STATS stats based on IMU sensor (https://imu.algo.tibtop-connect.com/sessions/imu)
-    case sessions(sensor: SensorType, params: Codable)
+    case sessions(sensor: SensorType, params: Session)
 
 
     // TIMELINE speeds bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/speed)
     // TIMELINE speeds bases on IMU sensor (https://imu.algo.tibtop-connect.com/trim/speed)
     // TIMELINE positions bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/gps)
-    case timeline(type: TimelineType, params: Codable)
+    case timeline(type: TimelineType, params: Timeline)
 
     public var algorithm: String {
         switch self {
