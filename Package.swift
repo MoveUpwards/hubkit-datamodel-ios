@@ -14,11 +14,15 @@ let package = Package(
             targets: ["HubkitModel"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "git@gitlab.com:vbkam/tibtop-model-core.git", .branch("develop"))
+    ],
     targets: [
         .target(
             name: "HubkitModel",
-            dependencies: [],
+            dependencies: [
+                .product(name: "TibtopModelCore", package: "tibtop-model-core")
+            ],
             path: "Sources"
         ),
     ]
