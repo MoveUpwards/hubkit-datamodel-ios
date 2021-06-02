@@ -8,6 +8,8 @@
 import Foundation
 import TibtopModelCore
 
+public protocol AlgorithmParam: Codable {}
+
 public enum AlgorithmType {
     public enum SensorType: String {
         case gps, imu
@@ -18,17 +20,17 @@ public enum AlgorithmType {
     }
 
     // IPPT (https://iptt.algo.tibtop-connect.com/sessions/iptt)
-    case ippt(params: Ippt)
+    case ippt(params: AlgorithmParam)
 
     // STATS based on GPS sensor (https://gps.algo.tibtop-connect.com/sessions/gps)
     // STATS stats based on IMU sensor (https://imu.algo.tibtop-connect.com/sessions/imu)
-    case sessions(sensor: SensorType, params: Session)
+    case sessions(sensor: SensorType, params: AlgorithmParam)
 
 
     // TIMELINE speeds bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/speed)
     // TIMELINE speeds bases on IMU sensor (https://imu.algo.tibtop-connect.com/trim/speed)
     // TIMELINE positions bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/gps)
-    case timeline(type: TimelineType, params: Timeline)
+    case timeline(type: TimelineType, params: AlgorithmParam)
 
     public var algorithm: String {
         switch self {
@@ -66,7 +68,7 @@ public enum AlgorithmType {
 // MARK: Ippt Input
 
 extension AlgorithmType {
-    public struct Ippt: Codable {
+    public struct Ippt: AlgorithmParam {
         public let position: PlayerPosition
         public let category: PlayerCategory
 
@@ -130,7 +132,7 @@ extension AlgorithmType {
 // MARK: Session Input
 
 extension AlgorithmType {
-    public struct Session: Codable {
+    public struct Session: AlgorithmParam {
         public let category: PlayerCategory
         public let coordinates: String
 
@@ -155,7 +157,7 @@ extension AlgorithmType {
 // MARK: Timeline Input
 
 extension AlgorithmType {
-    public struct Timeline: Codable {
+    public struct Timeline: AlgorithmParam {
         public let category: PlayerCategory
 
         public let start: TimeInterval?
