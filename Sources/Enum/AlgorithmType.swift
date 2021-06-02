@@ -63,6 +63,14 @@ public enum AlgorithmType {
         case .ippt: return ""
         }
     }
+
+    public var params: AlgorithmParam {
+        switch self {
+        case .ippt(let params): return params
+        case .sessions(_, let params): return params
+        case .timeline(_, let params): return params
+        }
+    }
 }
 
 // MARK: Ippt Input
