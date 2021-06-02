@@ -8,8 +8,6 @@
 import Foundation
 import TibtopModelCore
 
-public protocol Param: Codable {}
-
 public enum AlgorithmType {
     public enum SensorType: String {
         case gps, imu
@@ -20,17 +18,17 @@ public enum AlgorithmType {
     }
 
     // IPPT (https://iptt.algo.tibtop-connect.com/sessions/iptt)
-    case ippt(params: Param)
+    case ippt(params: Codable)
 
     // STATS based on GPS sensor (https://gps.algo.tibtop-connect.com/sessions/gps)
     // STATS stats based on IMU sensor (https://imu.algo.tibtop-connect.com/sessions/imu)
-    case sessions(sensor: SensorType, params: Param)
+    case sessions(sensor: SensorType, params: Codable)
 
 
     // TIMELINE speeds bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/speed)
     // TIMELINE speeds bases on IMU sensor (https://imu.algo.tibtop-connect.com/trim/speed)
     // TIMELINE positions bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/gps)
-    case timeline(type: TimelineType, params: Param)
+    case timeline(type: TimelineType, params: Codable)
 
     public var algorithm: String {
         switch self {
@@ -64,7 +62,7 @@ public enum AlgorithmType {
         }
     }
 
-    public var params: Param {
+    public var params: Codable {
         switch self {
         case .ippt(let params): return params
         case .sessions(_, let params): return params
@@ -76,7 +74,7 @@ public enum AlgorithmType {
 // MARK: Ippt Input
 
 extension AlgorithmType {
-    public struct Ippt: Param {
+    public struct Ippt: Codable {
         public let position: PlayerPosition
         public let category: PlayerCategory
 
@@ -140,7 +138,7 @@ extension AlgorithmType {
 // MARK: Session Input
 
 extension AlgorithmType {
-    public struct Session: Param {
+    public struct Session: Codable {
         public let category: PlayerCategory
         public let coordinates: String
 
@@ -165,7 +163,7 @@ extension AlgorithmType {
 // MARK: Timeline Input
 
 extension AlgorithmType {
-    public struct Timeline: Param {
+    public struct Timeline: Codable {
         public let category: PlayerCategory
 
         public let start: TimeInterval?
