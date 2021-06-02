@@ -18,27 +18,27 @@ public enum AlgorithmType {
     }
 
     // IPPT (https://iptt.algo.tibtop-connect.com/sessions/iptt)
-    case ippt
+    case ippt(params: Ippt)
 
     // STATS based on GPS sensor (https://gps.algo.tibtop-connect.com/sessions/gps)
     // STATS stats based on IMU sensor (https://imu.algo.tibtop-connect.com/sessions/imu)
-    case sessions(sensor: SensorType)
+    case sessions(sensor: SensorType, params: Session)
 
 
     // TIMELINE speeds bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/speed)
     // TIMELINE speeds bases on IMU sensor (https://imu.algo.tibtop-connect.com/trim/speed)
     // TIMELINE positions bases on GPS sensor (https://gps.algo.tibtop-connect.com/trim/gps)
-    case timeline(type: TimelineType)
+    case timeline(type: TimelineType, params: Timeline)
 
     public var algorithm: String {
         switch self {
         case .ippt: return "iptt-algo-go"
-        case .sessions(let sensor):
+        case .sessions(let sensor, _):
             switch sensor {
             case .gps: return "gps-algo-go"
             case .imu: return "imu-algo-go"
             }
-        case .timeline(let type):
+        case .timeline(let type, _):
             switch type {
             case .position: return "gps-algo-go-trim"
             case .speed(let sensor):
@@ -52,13 +52,21 @@ public enum AlgorithmType {
 
     public var dataType: String {
         switch self {
-        case .sessions(let sensor): return sensor.rawValue
-        case .timeline(let type):
+        case .sessions(let sensor, _): return sensor.rawValue
+        case .timeline(let type, _):
             switch type {
             case .position: return "gps"
             case .speed(let sensor): return sensor.rawValue
             }
         case .ippt: return ""
+        }
+    }
+
+    public var params: Codable {
+        switch self {
+        case .ippt(let params): return params
+        case .sessions(_, let params): return params
+        case .timeline(_, let params): return params
         }
     }
 }
