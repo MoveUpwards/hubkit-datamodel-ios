@@ -15,7 +15,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "git@gitlab.com:vbkam/tibtop-model-core.git", .branch("develop"))
+        .package(url: "git@gitlab.com:vbkam/tibtop-model-core.git", from: "1.0.0")
     ],
     targets: [
         .target(
