@@ -25,18 +25,18 @@ public struct Session: Codable {
     /// The session captured date
     public let duration: TimeInterval?
 
-    /// The session captured date
-    public let capturedAt: Date?
+    /// The session start captured date
+    public let startCapturedDate: Date?
+
+    /// The session stop captured date
+    public let endCapturedDate: Date?
 }
 
 extension Session {
     enum CodingKeys: String, CodingKey {
         case id = "identifier"
-        case state
-        case project
-        case metas
-        case duration
-        case capturedAt
+        case state, project, metas, duration
+        case startCapturedDate, endCapturedDate
     }
 }
 
