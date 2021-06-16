@@ -14,19 +14,19 @@ public struct Device: Codable {
     public let id: UUID
 
     /// The name of the device
-    public let externalUUID: UUID?
+    public let externalUUID: String?
 
     /// The name of the device
-    public let name: String?
+    public let name: String
 
     /// The MAC address of the device
-    public let macAddress: String?
+    public let macAddress: String
 
     /// The hardware version of the device
-    public let hardwareVersion: String?
+    public let hardwareVersion: String
 
     /// The firmware version of the device
-    public let firmwareVersion: String?
+    public let firmwareVersion: String
 
     /// Is the device start recording data manually
     public let manualMode: Bool
@@ -38,7 +38,7 @@ public struct Device: Codable {
     public let longitude: Double?
 
     /// The device type
-    public let sensorType: String?
+    public let sensorType: String
 
     /// The device battery level in percentile
     public let battery: Int?
